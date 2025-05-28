@@ -1,0 +1,52 @@
+{
+  // Dev Container configuration for Vue 3 + Vite project
+  "name": "vue-vite-profile",
+
+  // Use the same docker‑compose file we already have in the project root
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+
+  // Service defined in docker‑compose.yml that we want VS Code to attach to
+  "service": "frontend",
+
+  // Folder to open when the container starts (mount path set in compose)
+  "workspaceFolder": "/app/frontend",
+
+  // Ensure the service is started; stop the entire compose stack when VS Code closes
+  "runServices": ["frontend"],
+  "shutdownAction": "stopCompose",
+
+  // Install node modules automatically on first create / rebuild
+  "postCreateCommand": "npm install",
+
+  // Forward Vite dev‑server port and open preview automatically
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  // Recommended editor extensions & settings for better Vue dev‑experience
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "vue.tsPlugin": true,
+        "eslint.codeActionsOnSave.mode": "all",
+        "eslint.format.enable": true
+      }
+    }
+  },
+
+  // Container runs as root (default in node:alpine image)
+  "remoteUser": "root"
+}
