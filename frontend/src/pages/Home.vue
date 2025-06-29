@@ -1,59 +1,10 @@
 <template>
   <div class="home-page">
-    <v-container fluid class="profile-section pa-5">
-      <v-row justify="center">
-        <v-col cols="12" class="text-center">
-          <!-- Profile Image -->
-          <div class="profile-image-container mb-2">
-            <img :src="profileImage" alt="プロフィール画像" class="profile-image">
-          </div>
-
-          <!-- Name -->
-          <h2 class="profile-name my-2">べとりん @piyoketa</h2>
-
-          <!-- Description -->
-          <p class="profile-description mt-5 mt-md-8">
-            仕事の合間に<br>
-            自分が面白いと思えることを<br>
-            いろいろやっています
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+    <!-- Hero Section -->
+    <HeroSection />
 
     <!-- Profile Section -->
-    <v-container fluid class="profile-content-section pa-5">
-      <v-row justify="center">
-        <v-col cols="12" class="text-center">
-          <!-- Profile Icon & Title -->
-          <PageHeader title="Profile" :icon="titleIcon" />
-
-          <div class="activity-areas my-5 px-4">
-            <p class="activity-title mb-1">本名</p>
-            <p class="activity-text">
-              千葉 一輝（ちば かずき）
-            </p>
-          </div>
-
-          <div class="activity-areas my-5 px-4">
-            <p class="activity-title mb-1">経歴</p>
-            <p class="activity-text">
-              1994年生まれ。
-              2017年 東京大学医学部健康総合科学科卒。<br>
-              本業はWebエンジニア。 以前はオンラインカウンセリングのベンチャー企業でCTOをやったり、フリーランスのWebエンジニアをやったり。 最近は医療系IT企業でAI活用をやっています。
-            </p>
-          </div>
-
-          <div class="activity-areas my-5 px-4">
-            <p class="activity-title mb-1">活動分野</p>
-            <p class="activity-text">Webエンジニアリング、インタビュー記事執筆、<br>メンタルヘルス、ゲーム作り</p>
-          </div>
-
-          <!-- Illustration Note -->
-          <p class="illustration-note my-5 px-4">※イラストは全て妻が描きました</p>
-        </v-col>
-      </v-row>
-    </v-container>
+    <ProfileSection />
 
     <!-- Works Section -->
     <v-container fluid class="works-section pa-5">
@@ -92,22 +43,6 @@
         </v-col>
       </v-row>
 
-      <!-- IT Engineering Section -->
-      <v-row>
-        <v-col cols="12">
-          <SectionHeader title="IT engineering" description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。" />
-
-          <!-- 闇のIT営業勉強会セクション -->
-          <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales" />
-
-          <!-- マネジメント関係セクション -->
-          <ArticleSlides title="マネジメント関係" :articles="articleData.it_engineering.management" />
-
-          <!-- LLM関係セクション -->
-          <ArticleSlides title="LLM関係" :articles="articleData.it_engineering.llm" />
-        </v-col>
-      </v-row>
-
       <!-- Game Section -->
       <v-row class="game-section">
         <v-col cols="12">
@@ -121,6 +56,22 @@
               :game="game"
             />
           </div>
+        </v-col>
+      </v-row>
+
+      <!-- IT Engineering Section -->
+      <v-row>
+        <v-col cols="12">
+          <SectionHeader title="IT engineering" description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。" />
+
+          <!-- 闇のIT営業勉強会セクション -->
+          <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales" />
+
+          <!-- マネジメント関係セクション -->
+          <ArticleSlides title="マネジメント関係" :articles="articleData.it_engineering.management" />
+
+          <!-- LLM関係セクション -->
+          <ArticleSlides title="LLM関係" :articles="articleData.it_engineering.llm" />
         </v-col>
       </v-row>
 
@@ -160,13 +111,13 @@
 </template>
 
 <script setup>
-import profileImage from '@/assets/profile_top.png'
-import titleIcon from '@/assets/title_icon.png'
 import workIcon from '@/assets/work_icon.png'
 import ArticleSlides from '@/components/ArticleSlides.vue'
 import SectionHeader from '@/components/SectionHeader.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import GameCard from '@/components/GameCard.vue'
+import HeroSection from '@/sections/HeroSection.vue'
+import ProfileSection from '@/sections/ProfileSection.vue'
 
 // Game data
 const gameData = [
@@ -342,58 +293,6 @@ html {
 .home-page {
   padding: 0;
 
-  .profile-section,
-  .profile-content-section,
-  .works-section {
-    .profile-name {
-      font-size: 1.5em;
-      font-weight: normal;
-      color: #333;
-    }
-
-    .profile-description {
-      font-size: 1em;
-      line-height: 1.5;
-      letter-spacing: 0.2em;
-      color: #333;
-      font-family: 'Yomogi', cursive;
-    }
-
-    .activity-areas {
-      .activity-title {
-        font-size: 14px;
-        font-weight: bold;
-        color: #333;
-        text-align: left;
-      }
-
-      .activity-text {
-        font-size: 14px;
-        line-height: 1.5;
-        color: #333;
-        text-align: left;
-      }
-    }
-
-    .career-section {
-      .career-content {
-        text-align: left;
-
-        .career-text {
-          font-size: 10px;
-          line-height: 1.5;
-          color: #999;
-        }
-      }
-    }
-
-    .illustration-note {
-      font-size: 10px;
-      color: #333;
-      text-align: left;
-    }
-
-  }
 
   .works-section {
     .more-link {
