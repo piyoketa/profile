@@ -5,12 +5,12 @@
         <!-- Profile Icon & Title -->
         <!-- <PageHeader title="Profile" :icon="titleIcon" /> -->
 
-        <div class="activity-areas my-5">
+        <!-- <div class="activity-areas my-5">
           <p class="activity-title mb-1">本名</p>
           <p class="activity-text">
             千葉 一輝（ちば かずき）
           </p>
-        </div>
+        </div> -->
 
         <div class="activity-areas my-5">
           <p class="activity-title mb-1">経歴</p>
