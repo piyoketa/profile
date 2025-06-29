@@ -1,230 +1,156 @@
 <template>
   <div class="home-page">
-    <v-container fluid class="profile-section">
+    <v-container fluid class="profile-section pa-5">
       <v-row justify="center">
         <v-col cols="12" class="text-center">
           <!-- Profile Image -->
-          <div class="profile-image-container">
+          <div class="profile-image-container mb-2">
             <img :src="profileImage" alt="プロフィール画像" class="profile-image">
           </div>
-          
+
           <!-- Name -->
-          <h2 class="profile-name">べとりん @piyoketa</h2>
-          
+          <h2 class="profile-name my-2">べとりん @piyoketa</h2>
+
           <!-- Description -->
           <p class="profile-description mt-5 mt-md-8">
             仕事の合間に<br>
             自分が面白いと思えることを<br>
             いろいろやっています
-          </p>          
+          </p>
         </v-col>
       </v-row>
     </v-container>
 
     <!-- Profile Section -->
-    <v-container fluid class="profile-content-section">
+    <v-container fluid class="profile-content-section pa-5">
       <v-row justify="center">
         <v-col cols="12" class="text-center">
           <!-- Profile Icon & Title -->
-          <PageHeader
-            title="Profile"
-            :icon="titleIcon"
-          />
+          <PageHeader title="Profile" :icon="titleIcon" />
 
-          <div class="activity-areas">
-            <p class="activity-title">本名</p>
+          <div class="activity-areas my-5 px-4">
+            <p class="activity-title mb-1">本名</p>
             <p class="activity-text">
               千葉 一輝（ちば かずき）
             </p>
           </div>
 
-          <div class="activity-areas">
-            <p class="activity-title">経歴</p>
+          <div class="activity-areas my-5 px-4">
+            <p class="activity-title mb-1">経歴</p>
             <p class="activity-text">
-                1994年生まれ。
-                2017年 東京大学医学部健康総合科学科卒。<br>
-                本業はWebエンジニア。 以前はオンラインカウンセリングのベンチャー企業でCTOをやったり、フリーランスのWebエンジニアをやったり。 最近は医療系IT企業でAI活用をやっています。
+              1994年生まれ。
+              2017年 東京大学医学部健康総合科学科卒。<br>
+              本業はWebエンジニア。 以前はオンラインカウンセリングのベンチャー企業でCTOをやったり、フリーランスのWebエンジニアをやったり。 最近は医療系IT企業でAI活用をやっています。
             </p>
           </div>
-          
-          <div class="activity-areas">
-            <p class="activity-title">活動分野</p>
+
+          <div class="activity-areas my-5 px-4">
+            <p class="activity-title mb-1">活動分野</p>
             <p class="activity-text">Webエンジニアリング、インタビュー記事執筆、<br>メンタルヘルス、ゲーム作り</p>
           </div>
 
           <!-- Illustration Note -->
-          <p class="illustration-note">※イラストは全て妻が描きました</p>
+          <p class="illustration-note my-5 px-4">※イラストは全て妻が描きました</p>
         </v-col>
       </v-row>
     </v-container>
 
     <!-- Works Section -->
-    <v-container fluid class="works-section">
+    <v-container fluid class="works-section pa-5">
       <v-row justify="center">
         <v-col cols="12" class="text-center">
           <!-- Works Icon & Title -->
-          <PageHeader
-            title="Works"
-            :icon="workIcon"
-            class="works"
-          />
+          <PageHeader title="Works" :icon="workIcon" class="works" />
         </v-col>
       </v-row>
-    </v-container>
 
-    <!-- Interviews Section -->
-    <v-container fluid class="interviews-section">
+      <!-- Interview Section -->
       <v-row>
         <v-col cols="12">
-          <SectionHeader
-            title="Interviews"
-            description="大学でインタビュー分析手法を学んで以降、「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事の執筆を続けています。"
-          />
-          
+          <SectionHeader title="Interviews"
+            description="大学でインタビュー分析手法を学んで以降、「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事の執筆を続けています。" />
+
           <!-- millnaさんセクション -->
-          <ArticleSlides
-            title="millnaさん"
-            subtitle="ファッションデザイナー / YouTuber"
-            :articles="articleData.interview_analysis.millna"
-          />
+          <ArticleSlides title="millnaさん" subtitle="ファッションデザイナー / YouTuber"
+            :articles="articleData.interview_analysis.millna" />
 
           <!-- Karinさんセクション -->
-          <ArticleSlides
-            title="Karinさん"
-            subtitle="バーチャルAV女優"
-            :articles="articleData.interview_analysis.karin"
-          />
+          <ArticleSlides title="Karinさん" subtitle="バーチャルAV女優" :articles="articleData.interview_analysis.karin" />
 
           <!-- コーチセクション -->
-          <ArticleSlides
-            title="コーチ"
-            subtitle="対人支援専門職"
-            :articles="articleData.interview_analysis.coach"
-          />
+          <ArticleSlides title="コーチ" subtitle="対人支援専門職" :articles="articleData.interview_analysis.coach" />
 
           <!-- ピアサポーターセクション -->
-          <ArticleSlides
-            title="精神障害ピアサポーター"
-            :articles="articleData.interview_analysis.peer_support"
-          />
-          
+          <ArticleSlides title="精神障害ピアサポーター" :articles="articleData.interview_analysis.peer_support" />
+
           <!-- More Link -->
-          <div class="more-link">
+          <div class="more-link text-center mt-8">
             <router-link to="/interview" class="interview-link">
               →インタビューについてより詳しく
             </router-link>
           </div>
         </v-col>
       </v-row>
-    </v-container>
 
-    <!-- IT Engineering Section -->
-    <v-container fluid class="it-section">
+      <!-- IT Engineering Section -->
       <v-row>
         <v-col cols="12">
-          <SectionHeader
-            title="IT engineering"
-            description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。"
-          />
-          
+          <SectionHeader title="IT engineering" description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。" />
+
           <!-- 闇のIT営業勉強会セクション -->
-          <ArticleSlides
-            title="闇のIT営業勉強会"
-            :articles="articleData.it_engineering.dark_it_sales"
-          />
+          <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales" />
 
           <!-- マネジメント関係セクション -->
-          <ArticleSlides
-            title="マネジメント関係"
-            :articles="articleData.it_engineering.management"
-          />
+          <ArticleSlides title="マネジメント関係" :articles="articleData.it_engineering.management" />
 
           <!-- LLM関係セクション -->
-          <ArticleSlides
-            title="LLM関係"
-            :articles="articleData.it_engineering.llm"
-          />
+          <ArticleSlides title="LLM関係" :articles="articleData.it_engineering.llm" />
         </v-col>
       </v-row>
-    </v-container>
 
-    <!-- Game Section -->
-    <v-container fluid class="game-section">
-      <v-row>
+      <!-- Game Section -->
+      <v-row class="game-section">
         <v-col cols="12">
-          <SectionHeader
-            title="Game"
-            description="2025年から、趣味でゲーム作っています"
-          />
-          
+          <SectionHeader title="Game" description="2025年から、趣味でゲーム作っています" />
+
           <!-- Game Cards -->
           <div class="game-cards">
-            <div class="game-card">
-              <div class="card-content">
-                <div class="game-info">
-                  <p class="game-title">
-                    <a href="https://unityroom.com/games/alone_7cards" target="_blank" class="game-link">孤独の七並べ</a>
-                  </p>
-                  <p class="game-subtitle">トランプパズル/ローグライク プレイ時間 15分～</p>
-                </div>
-                <div class="game-image">
-                  <img 
-                    src="/src/assets/articles/kodokuno_sichinarabe.png" 
-                    alt="孤独の七並べ"
-                    class="game-thumbnail"
-                    @error="handleImageError"
-                  >
-                </div>
-              </div>
-            </div>
-            
-            <div class="game-card">
-              <div class="card-content">
-                <div class="game-info">
-                  <p class="game-title">
-                    <a href="https://openai-moderation-app.netlify.app" target="_blank" class="game-link">有害コンテンツシューティング</a>
-                  </p>
-                  <p class="game-subtitle">実験作 プレイ時間 5分～</p>
-                </div>
-                <div class="game-image">
-                  <img 
-                    src="/src/assets/articles/GXM6A_GaIAEQ-hq.png" 
-                    alt="有害性コンテンツシューティング"
-                    class="game-thumbnail"
-                    @error="handleImageError"
-                  >
-                </div>
-              </div>
-            </div>
+            <GameCard
+              v-for="game in gameData"
+              :key="game.url"
+              :game="game"
+            />
           </div>
         </v-col>
       </v-row>
-    </v-container>
 
-    <!-- Mental Health Section -->
-    <v-container fluid class="mental-health-section">
+      <!-- Mental Health Section -->
       <v-row>
         <v-col cols="12">
-          <SectionHeader
-            title="Mental health"
-            description="学生時代は精神障害当事者活動の研究をしてたこともあり、卒業後もメンタルヘルスに関してちまちま執筆や発信をしています。一時期は「Fundamental」というIT×メンタルヘルス企業の集まりの運営をしていました。"
-          />
-          
+          <SectionHeader title="Mental health"
+            description="学生時代は精神障害当事者活動の研究をしてたこともあり、卒業後もメンタルヘルスに関してちまちま執筆や発信をしています。一時期は「Fundamental」というIT×メンタルヘルス企業の集まりの運営をしていました。" />
+
           <div class="activities-list">
             <p class="activities-text">
               書籍<br>
-              ・<a href="https://www.kongoshuppan.co.jp/book/b608335.html" target="_blank" class="mental-health-link">臨床心理学 増刊14号「データから見る心理職の賃金と雇用形態」</a><br><br>
-              
+              ・<a href="https://www.kongoshuppan.co.jp/book/b608335.html" target="_blank"
+                class="mental-health-link">臨床心理学 増刊14号「データから見る心理職の賃金と雇用形態」</a><br><br>
+
               勉強会資料<br>
-              ・<a href="https://vine-gasoline-69c.notion.site/92de8ae4fa594ab8b2fca91140b92a9a?source=copy_link" target="_blank" class="mental-health-link">非臨床職のための心理カウンセリング基礎知識講座</a><br>
-              ・<a href="https://vine-gasoline-69c.notion.site/in-2022-d6ebec77c5dc4a69b8f3bc9c642f9ed8?source=copy_link" target="_blank" class="mental-health-link">デジタルメンタルヘルスの動向を概観する in 2022</a><br><br>
-              
+              ・<a href="https://vine-gasoline-69c.notion.site/92de8ae4fa594ab8b2fca91140b92a9a?source=copy_link"
+                target="_blank" class="mental-health-link">非臨床職のための心理カウンセリング基礎知識講座</a><br>
+              ・<a href="https://vine-gasoline-69c.notion.site/in-2022-d6ebec77c5dc4a69b8f3bc9c642f9ed8?source=copy_link"
+                target="_blank" class="mental-health-link">デジタルメンタルヘルスの動向を概観する in 2022</a><br><br>
+
               動画<br>
-              ・<a href="https://www.youtube.com/channel/UCJADMvAwXJoQq832rFwxLDg" target="_blank" class="mental-health-link">Fundamental-Radio</a><br><br>
-              
+              ・<a href="https://www.youtube.com/channel/UCJADMvAwXJoQq832rFwxLDg" target="_blank"
+                class="mental-health-link">Fundamental-Radio</a><br><br>
+
               記事：<br>
-              ・<a href="https://note.com/piyoketa/n/n915ad7a538d8" target="_blank" class="mental-health-link">悩める高校生よ、「心理学部」を選ぶのはまだ早い</a><br>
-              ・<a href="https://note.com/piyoketa/n/nf22a7f31c412" target="_blank" class="mental-health-link">心理士のキャリアのためのPX(サイコロジカルトランスフォーメーション)人材のすすめ</a>
+              ・<a href="https://note.com/piyoketa/n/n915ad7a538d8" target="_blank"
+                class="mental-health-link">悩める高校生よ、「心理学部」を選ぶのはまだ早い</a><br>
+              ・<a href="https://note.com/piyoketa/n/nf22a7f31c412" target="_blank"
+                class="mental-health-link">心理士のキャリアのためのPX(サイコロジカルトランスフォーメーション)人材のすすめ</a>
             </p>
           </div>
         </v-col>
@@ -240,6 +166,23 @@ import workIcon from '@/assets/work_icon.png'
 import ArticleSlides from '@/components/ArticleSlides.vue'
 import SectionHeader from '@/components/SectionHeader.vue'
 import PageHeader from '@/components/PageHeader.vue'
+import GameCard from '@/components/GameCard.vue'
+
+// Game data
+const gameData = [
+  {
+    title: '孤独の七並べ',
+    subtitle: 'トランプパズル/ローグライク プレイ時間 15分～',
+    url: 'https://unityroom.com/games/alone_7cards',
+    image: '/src/assets/articles/kodokuno_sichinarabe.png'
+  },
+  {
+    title: '有害コンテンツシューティング',
+    subtitle: '実験作 プレイ時間 5分～',
+    url: 'https://openai-moderation-app.netlify.app',
+    image: '/src/assets/articles/GXM6A_GaIAEQ-hq.png'
+  }
+]
 
 // Article data
 const articleData = {
@@ -391,33 +334,23 @@ const articleData = {
 </script>
 
 <style lang="scss">
-html{
+html {
   // font-family: 'Yomogi', cursive;
   box-sizing: border-box;
 }
 
-// Component
-
-    
-
 .home-page {
   padding: 0;
-  
-  .profile-section, .profile-content-section, .works-section {
-    padding: 20px 10px;
-    
-    .profile-image-container {
-      margin-bottom: 10px;
-      
-    }
-    
+
+  .profile-section,
+  .profile-content-section,
+  .works-section {
     .profile-name {
       font-size: 1.5em;
       font-weight: normal;
-      margin: 10px 0;
       color: #333;
     }
-    
+
     .profile-description {
       font-size: 1em;
       line-height: 1.5;
@@ -425,19 +358,15 @@ html{
       color: #333;
       font-family: 'Yomogi', cursive;
     }
-    
+
     .activity-areas {
-      margin: 20px 0;
-      padding: 0 15px;
-      
       .activity-title {
         font-size: 14px;
         font-weight: bold;
         color: #333;
-        margin-bottom: 5px;
         text-align: left;
       }
-      
+
       .activity-text {
         font-size: 14px;
         line-height: 1.5;
@@ -445,123 +374,50 @@ html{
         text-align: left;
       }
     }
-    
+
     .career-section {
-      margin: 20px 0;
-      padding: 23px 15px 10px 15px;
-      
       .career-content {
         text-align: left;
-        
+
         .career-text {
           font-size: 10px;
           line-height: 1.5;
           color: #999;
-          margin: 0;
         }
       }
     }
-    
+
     .illustration-note {
       font-size: 10px;
       color: #333;
-      margin: 20px 0;
       text-align: left;
-      padding: 0 15px;
     }
-    
+
   }
-  
-  .interviews-section, .it-section {
-    padding: 10px;
-    
-    
+
+  .works-section {
     .more-link {
-      text-align: center;
-      margin-top: 30px;
-      
       .interview-link {
         color: #333dff;
         text-decoration: underline;
         font-size: 12px;
       }
     }
-  }
-  
-  .game-section {
-    padding: 10px;
-    
 
-    .game-cards {
-      .game-card {
-        border-left: 4px solid #ccc;
-        padding-left: 10px;
-        margin-bottom: 20px;
-        
-        .card-content {
-          .game-info {
-            margin-bottom: 15px;
-            
-            .game-title {
-              font-size: 14px;
-              color: #333;
-              margin: 0 0 5px 0;
-              
-              .game-link {
-                color: #333dff;
-                text-decoration: underline;
-                
-                &:hover {
-                  color: #3338cc;
-                }
-              }
-            }
-            
-            .game-subtitle {
-              font-size: 14px;
-              color: #333;
-              margin: 0;
-            }
-          }
-          
-          .game-image {
-            .image-placeholder.large {
-              width: 325px;
-              height: 183px;
-              background-color: #f0f0f0;
-              border-radius: 4px;
-            }
-            
-            .game-thumbnail {
-              width: 325px;
-              height: 183px;
-              object-fit: cover;
-              border-radius: 4px;
-              border: 1px solid #ddd;
-            }
-          }
-        }
-      }
-    }
-  }
-  
-  .mental-health-section {
-    padding: 10px;
-    
-    
-    
+
     .activities-list {
       .activities-text {
         font-size: 12px;
-        
+
         .mental-health-link {
           color: #333dff;
           text-decoration: underline;
-          
+
           &:hover {
             color: #3338cc;
           }
         }
+
         line-height: 1.6;
         color: #333;
         text-align: left;

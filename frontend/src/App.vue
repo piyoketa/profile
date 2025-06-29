@@ -13,17 +13,18 @@
     <v-app-bar color="#0F1E2E" dark height="40" class="px-5" app>
       <!-- プロフィールアイコン -->
       <router-link to="/" class="d-flex align-center">
-        <img :src="profileImage" alt="プロフィール画像" class="profile-icon">
+        piyoketa's Portfolio
+        <!-- <img :src="profileImage" alt="プロフィール画像" class="profile-icon"> -->
       </router-link>
 
       <!-- 右寄せのためのスペーサ -->
       <v-spacer></v-spacer>
 
       <!-- モバイル: ハンバーガーボタン (md 以上では非表示) -->
-      <v-app-bar-nav-icon class="d-flex d-md-none" @click.stop="drawer = true"></v-app-bar-nav-icon>
+      <!-- <v-app-bar-nav-icon class="d-flex d-md-none" @click.stop="drawer = true"></v-app-bar-nav-icon> -->
 
       <!-- デスクトップ: タブ (md 以上のみ表示) -->
-      <v-tabs
+      <!-- <v-tabs
         v-model="tab"
         class="d-none d-md-flex"
         color="white"
@@ -39,7 +40,7 @@
         >
           {{ link.label }}
         </v-tab>
-      </v-tabs>
+      </v-tabs> -->
     </v-app-bar>
 
     <!-- ページコンテンツ -->
