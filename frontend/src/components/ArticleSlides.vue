@@ -1,6 +1,6 @@
 <template>
   <div class="article-category">
-    <h3 class="category-title pl-3 mb-1">{{ title }}</h3>
+    <h3 v-if="title" class="category-title pl-3 mb-1">{{ title }}</h3>
     <p v-if="subtitle" class="category-subtitle pl-3">{{ subtitle }}</p>
     <div class="slide-group-container">
       <v-slide-group
@@ -34,7 +34,7 @@ import ArticleCard from './ArticleCard.vue'
 const props = defineProps({
   title: {
     type: String,
-    required: true
+    default: ''
   },
   subtitle: {
     type: String,
@@ -54,13 +54,13 @@ const slideModel = ref(0)
   overflow: visible;
   
   .category-title {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
     color: #333;
   }
   
   .category-subtitle {
-    font-size: 12px;
+    font-size: 0.75em;
     color: #666;
   }
   

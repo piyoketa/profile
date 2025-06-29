@@ -145,7 +145,7 @@ const handleImageError = (event) => {
       flex-direction: column;
       
       .slide-article-title {
-        font-size: 14px;
+        font-size: 0.875em;
         font-weight: 600;
         color: #333;
         margin-bottom: 8px;
@@ -158,7 +158,7 @@ const handleImageError = (event) => {
       }
       
       .slide-article-subtitle {
-        font-size: 12px;
+        font-size: 0.75em;
         color: #666;
         line-height: 1.3;
         margin-bottom: 8px;
@@ -172,7 +172,7 @@ const handleImageError = (event) => {
       .platform-badge {
         display: inline-block;
         padding: 2px 6px;
-        font-size: 10px;
+        font-size: 0.625em;
         border-radius: 4px;
         font-weight: 500;
         margin-top: auto;
@@ -185,6 +185,21 @@ const handleImageError = (event) => {
         
         &.zenn {
           background-color: #3ea8ff;
+          color: white;
+        }
+        
+        &.Youtube {
+          background-color: #ff0000;
+          color: white;
+        }
+        
+        &.寄稿記事 {
+          background-color: #666;
+          color: white;
+        }
+        
+        &.勉強会資料 {
+          background-color: #666;
           color: white;
         }
       }
@@ -207,12 +222,12 @@ const handleImageError = (event) => {
         padding: 12px;
         
         .slide-article-title {
-          font-size: 13px;
+          font-size: 0.8125em;
           margin-bottom: 6px;
         }
         
         .slide-article-subtitle {
-          font-size: 11px;
+          font-size: 0.6875em;
         }
       }
     }
@@ -233,11 +248,11 @@ const handleImageError = (event) => {
         padding: 10px;
         
         .slide-article-title {
-          font-size: 12px;
+          font-size: 0.75em;
         }
         
         .slide-article-subtitle {
-          font-size: 10px;
+          font-size: 0.625em;
         }
       }
     }

@@ -39,7 +39,7 @@ defineProps({
   }
   
   .page-title {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 800;
     color: #666;
     text-decoration: underline;

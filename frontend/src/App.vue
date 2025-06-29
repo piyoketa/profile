@@ -12,7 +12,7 @@
 
     <v-app-bar color="#0F1E2E" dark height="40" class="px-5" app>
       <!-- プロフィールアイコン -->
-      <router-link to="/" class="d-flex align-center">
+      <router-link to="/" class="d-flex align-center text-white text-decoration-none">
         piyoketa's Portfolio
         <!-- <img :src="profileImage" alt="プロフィール画像" class="profile-icon"> -->
       </router-link>
@@ -102,7 +102,7 @@ watch(route, (newRoute) => {
 }
 /* 共通フォント */
 .v-application {
-  font-family: 'Avenir', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans JP', 'Noto Sans', Helvetica, Arial, sans-serif;
   text-align: left;
 }
 
@@ -153,5 +153,6 @@ watch(route, (newRoute) => {
 html {
   // font-family: 'Yomogi', cursive;
   box-sizing: border-box;
+  font-size: 18px;
 }
 </style>

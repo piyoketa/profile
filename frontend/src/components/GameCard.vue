@@ -40,7 +40,7 @@ const handleImageError = (event) => {
   .card-content {
     .game-info {
       .game-title {
-        font-size: 14px;
+        font-size: 0.875em;
         color: #333;
 
         .game-link {
@@ -54,7 +54,7 @@ const handleImageError = (event) => {
       }
 
       .game-subtitle {
-        font-size: 14px;
+        font-size: 0.875em;
         color: #333;
       }
     }

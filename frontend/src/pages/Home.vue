@@ -8,18 +8,17 @@
 
     <!-- Works Section -->
     <v-container class="works-section">
-      <v-row justify="center">
+      <!-- <v-row justify="center">
         <v-col cols="12" class="text-center">
-          <!-- Works Icon & Title -->
           <PageHeader title="Works" :icon="workIcon" class="works" />
         </v-col>
-      </v-row>
+      </v-row> -->
 
       <!-- Interview Section -->
       <v-row>
         <v-col cols="12">
           <SectionHeader title="Interviews"
-            description="大学でインタビュー分析手法を学んで以降、「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事の執筆を続けています。" />
+            description="「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事を書いています"></SectionHeader>
 
           <!-- millnaさんセクション -->
           <ArticleSlides title="millnaさん" subtitle="ファッションデザイナー / YouTuber"
@@ -56,7 +55,7 @@
       <!-- IT Engineering Section -->
       <v-row>
         <v-col cols="12">
-          <SectionHeader title="IT engineering" description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。" />
+          <SectionHeader title="IT engineering" description="たまに記事を書いたり勉強会を開いたりしています。" />
 
           <!-- 闇のIT営業勉強会セクション -->
           <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales"  class="mb-10" />
@@ -73,31 +72,10 @@
       <v-row>
         <v-col cols="12">
           <SectionHeader title="Mental health"
-            description="学生時代は精神障害当事者活動の研究をしてたこともあり、卒業後もメンタルヘルスに関してちまちま執筆や発信をしています。一時期は「Fundamental」というIT×メンタルヘルス企業の集まりの運営をしていました。" />
+            description="メンタルヘルスやカウンセリングに関して執筆や発信をしています。" />
 
-          <div class="activities-list">
-            <p class="activities-text">
-              書籍<br>
-              ・<a href="https://www.kongoshuppan.co.jp/book/b608335.html" target="_blank"
-                class="mental-health-link">臨床心理学 増刊14号「データから見る心理職の賃金と雇用形態」</a><br><br>
-
-              勉強会資料<br>
-              ・<a href="https://vine-gasoline-69c.notion.site/92de8ae4fa594ab8b2fca91140b92a9a?source=copy_link"
-                target="_blank" class="mental-health-link">非臨床職のための心理カウンセリング基礎知識講座</a><br>
-              ・<a href="https://vine-gasoline-69c.notion.site/in-2022-d6ebec77c5dc4a69b8f3bc9c642f9ed8?source=copy_link"
-                target="_blank" class="mental-health-link">デジタルメンタルヘルスの動向を概観する in 2022</a><br><br>
-
-              動画<br>
-              ・<a href="https://www.youtube.com/channel/UCJADMvAwXJoQq832rFwxLDg" target="_blank"
-                class="mental-health-link">Fundamental-Radio</a><br><br>
-
-              記事：<br>
-              ・<a href="https://note.com/piyoketa/n/n915ad7a538d8" target="_blank"
-                class="mental-health-link">悩める高校生よ、「心理学部」を選ぶのはまだ早い</a><br>
-              ・<a href="https://note.com/piyoketa/n/nf22a7f31c412" target="_blank"
-                class="mental-health-link">心理士のキャリアのためのPX(サイコロジカルトランスフォーメーション)人材のすすめ</a>
-            </p>
-          </div>
+          <!-- Mental Health Content -->
+          <ArticleSlides :articles="mentalHealthData" class="mb-10" />
         </v-col>
       </v-row>
     </v-container>
@@ -125,6 +103,46 @@ const gameData = [
     subtitle: 'OpenAI moderation API利用 実験作',
     url: 'https://openai-moderation-app.netlify.app',
     thumbnail: '/src/assets/articles/GXM6A_GaIAEQ-hq.png'
+  }
+]
+
+// Mental health data converted to article format
+const mentalHealthData = [
+  {
+    title: '臨床心理学 増刊14号「データから見る心理職の賃金と雇用形態」',
+    url: 'https://www.kongoshuppan.co.jp/book/b608335.html',
+    thumbnail: 'https://www.kongoshuppan.co.jp/images/book/608335.jpg',
+    platform: '寄稿記事'
+  },
+  {
+    title: '非臨床職のための心理カウンセリング基礎知識講座',
+    url: 'https://vine-gasoline-69c.notion.site/92de8ae4fa594ab8b2fca91140b92a9a?source=copy_link',
+    thumbnail: '/src/assets/articles/psychology_course.webp',
+    platform: '勉強会資料'
+  },
+  {
+    title: 'デジタルメンタルヘルスの動向を概観する in 2022',
+    url: 'https://vine-gasoline-69c.notion.site/in-2022-d6ebec77c5dc4a69b8f3bc9c642f9ed8?source=copy_link',
+    thumbnail: '/src/assets/articles/degitalhealtgh.webp',
+    platform: '勉強会資料'
+  },
+  {
+    title: 'Fundamental-Radio',
+    url: 'https://www.youtube.com/channel/UCJADMvAwXJoQq832rFwxLDg',
+    thumbnail: '/src/assets/articles/maxresdefault.jpg',
+    platform: 'Youtube'
+  },
+  {
+    title: '悩める高校生よ、「心理学部」を選ぶのはまだ早い',
+    url: 'https://note.com/piyoketa/n/n915ad7a538d8',
+    thumbnail: 'https://assets.st-note.com/production/uploads/images/10711731/9aeca65dc3b9341ba1c83e0f2a43f17e.jpeg',
+    platform: 'note'
+  },
+  {
+    title: '心理士のキャリアのためのPX(サイコロジカルトランスフォーメーション)人材のすすめ',
+    url: 'https://note.com/piyoketa/n/nf22a7f31c412',
+    thumbnail: 'https://assets.st-note.com/production/uploads/images/61384582/db88f6f3d14acb7bf7e2811a34d3ae35.png',
+    platform: 'note'
   }
 ]
 
@@ -282,14 +300,14 @@ const articleData = {
   .interview-link {
     color: #333dff;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 0.75em;
   }
 }
 
 
 .activities-list {
   .activities-text {
-    font-size: 12px;
+    font-size: 0.75em;
 
     .mental-health-link {
       color: #333dff;

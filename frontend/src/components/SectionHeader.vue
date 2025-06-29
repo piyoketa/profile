@@ -21,7 +21,7 @@ defineProps({
 <style lang="scss" scoped>
 .section-header {
   .section-title {
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 700;
     color: #333;
     margin-bottom: 10px;
@@ -32,7 +32,7 @@ defineProps({
   }
 
   .section-description {
-    font-size: 14px;
+    font-size: 0.875em;
     color: #333;
     margin-bottom: 20px;
   }
