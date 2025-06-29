@@ -1,6 +1,5 @@
 <template>
   <div class="home-page">
-    <!-- Profile Section -->
     <v-container fluid class="profile-section">
       <v-row justify="center">
         <v-col cols="12" class="text-center">
@@ -17,15 +16,20 @@
             仕事の合間に<br>
             自分が面白いと思えることを<br>
             いろいろやっています
-          </p>
-          
+          </p>          
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Profile Section -->
+    <v-container fluid class="profile-content-section">
+      <v-row justify="center">
+        <v-col cols="12" class="text-center">
           <!-- Profile Icon & Title -->
-          <div class="profile-header">
-            <v-avatar size="80" class="profile-icon">
-              <img :src="titleIcon" alt="プロフィール">
-            </v-avatar>
-            <h3 class="profile-title">Profile</h3>
-          </div>
+          <PageHeader
+            title="Profile"
+            :icon="titleIcon"
+          />
 
           <div class="activity-areas">
             <p class="activity-title">本名</p>
@@ -50,14 +54,20 @@
 
           <!-- Illustration Note -->
           <p class="illustration-note">※イラストは全て妻が描きました</p>
-          
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Works Section -->
+    <v-container fluid class="works-section">
+      <v-row justify="center">
+        <v-col cols="12" class="text-center">
           <!-- Works Icon & Title -->
-          <div class="works-header">
-            <v-avatar size="80" class="works-icon">
-              <img :src="workIcon" alt="Works">
-            </v-avatar>
-            <h3 class="works-title">Works</h3>
-          </div>
+          <PageHeader
+            title="Works"
+            :icon="workIcon"
+            class="works"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -66,117 +76,37 @@
     <v-container fluid class="interviews-section">
       <v-row>
         <v-col cols="12">
-          <h2 class="section-title">Interviews</h2>
-          <p class="section-description">
-            大学でインタビュー分析手法を学んで以降、「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事の執筆を続けています。
-          </p>
+          <SectionHeader
+            title="Interviews"
+            description="大学でインタビュー分析手法を学んで以降、「異なる世界の間に橋を架ける」をテーマに、主に対人支援に関するインタビュー分析記事の執筆を続けています。"
+          />
           
           <!-- millnaさんセクション -->
-          <div class="interview-category">
-            <h3 class="category-title">millnaさん</h3>
-            <p class="category-subtitle">ファッションデザイナー / YouTuber</p>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="millnaSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                mandatory
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.interview_analysis.millna"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="millnaさん"
+            subtitle="ファッションデザイナー / YouTuber"
+            :articles="articleData.interview_analysis.millna"
+          />
 
           <!-- Karinさんセクション -->
-          <div class="interview-category">
-            <h3 class="category-title">Karinさん</h3>
-            <p class="category-subtitle">バーチャルAV女優</p>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="karinSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.interview_analysis.karin"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="Karinさん"
+            subtitle="バーチャルAV女優"
+            :articles="articleData.interview_analysis.karin"
+          />
 
           <!-- コーチセクション -->
-          <div class="interview-category">
-            <h3 class="category-title">コーチ</h3>
-            <p class="category-subtitle">対人支援専門職</p>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="coachSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.interview_analysis.coach"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="コーチ"
+            subtitle="対人支援専門職"
+            :articles="articleData.interview_analysis.coach"
+          />
 
           <!-- ピアサポーターセクション -->
-          <div class="interview-category">
-            <h3 class="category-title">精神障害ピアサポーター</h3>
-            <p class="category-subtitle">当事者研究・ピアサポート</p>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="peerSupportSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.interview_analysis.peer_support"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="精神障害ピアサポーター"
+            :articles="articleData.interview_analysis.peer_support"
+          />
           
           <!-- More Link -->
           <div class="more-link">
@@ -192,88 +122,28 @@
     <v-container fluid class="it-section">
       <v-row>
         <v-col cols="12">
-          <h2 class="section-title">IT engineering</h2>
-          <p class="section-description">
-            勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。
-          </p>
+          <SectionHeader
+            title="IT engineering"
+            description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。"
+          />
           
           <!-- 闇のIT営業勉強会セクション -->
-          <div class="it-category">
-            <h3 class="category-title">闇のIT営業勉強会</h3>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="darkItSalesSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.it_engineering.dark_it_sales"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="闇のIT営業勉強会"
+            :articles="articleData.it_engineering.dark_it_sales"
+          />
 
           <!-- マネジメント関係セクション -->
-          <div class="it-category">
-            <h3 class="category-title">マネジメント関係</h3>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="managementSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.it_engineering.management"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="マネジメント関係"
+            :articles="articleData.it_engineering.management"
+          />
 
           <!-- LLM関係セクション -->
-          <div class="it-category">
-            <h3 class="category-title">LLM関係</h3>
-            <div class="slide-group-container">
-              <v-slide-group
-                v-model="llmSlideModel"
-                class="article-slide-group"
-                show-arrows="mobile"
-                :mandatory="false"
-                center-active
-              >
-                <v-slide-group-item
-                  v-for="article in articleData.it_engineering.llm"
-                  :key="article.url"
-                  v-slot="{ toggle, selectedClass }"
-                >
-                  <ArticleCard
-                    :article="article"
-                    :selected-class="selectedClass"
-                    :toggle="toggle"
-                  />
-                </v-slide-group-item>
-              </v-slide-group>
-            </div>
-          </div>
+          <ArticleSlides
+            title="LLM関係"
+            :articles="articleData.it_engineering.llm"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -282,10 +152,10 @@
     <v-container fluid class="game-section">
       <v-row>
         <v-col cols="12">
-          <h2 class="section-title">Game</h2>
-          <p class="section-description">
-            2025年から、趣味でゲーム作っています
-          </p>
+          <SectionHeader
+            title="Game"
+            description="2025年から、趣味でゲーム作っています"
+          />
           
           <!-- Game Cards -->
           <div class="game-cards">
@@ -335,13 +205,10 @@
     <v-container fluid class="mental-health-section">
       <v-row>
         <v-col cols="12">
-          <div class="section-header">
-            <h2 class="section-title">Mental health</h2>
-          </div>
-          
-          <p class="section-description">
-            学生時代は精神障害当事者活動の研究をしてたこともあり、卒業後もメンタルヘルスに関してちまちま執筆や発信をしています。一時期は「Fundamental」というIT×メンタルヘルス企業の集まりの運営をしていました。
-          </p>
+          <SectionHeader
+            title="Mental health"
+            description="学生時代は精神障害当事者活動の研究をしてたこともあり、卒業後もメンタルヘルスに関してちまちま執筆や発信をしています。一時期は「Fundamental」というIT×メンタルヘルス企業の集まりの運営をしていました。"
+          />
           
           <div class="activities-list">
             <p class="activities-text">
@@ -367,11 +234,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import profileImage from '@/assets/profile_top.png'
 import titleIcon from '@/assets/title_icon.png'
 import workIcon from '@/assets/work_icon.png'
-import ArticleCard from '@/components/ArticleCard.vue'
+import ArticleSlides from '@/components/ArticleSlides.vue'
+import SectionHeader from '@/components/SectionHeader.vue'
+import PageHeader from '@/components/PageHeader.vue'
 
 // Article data
 const articleData = {
@@ -518,14 +386,6 @@ const articleData = {
   }
 }
 
-// カルーセル用のデータ
-const millnaSlideModel = ref(0)
-const karinSlideModel = ref(0)
-const coachSlideModel = ref(0)
-const peerSupportSlideModel = ref(0)
-const darkItSalesSlideModel = ref(0)
-const managementSlideModel = ref(0)
-const llmSlideModel = ref(0)
 
 
 </script>
@@ -537,54 +397,13 @@ html{
 }
 
 // Component
-.profile-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0 0;
-  padding-right: 30px;
-  
-  .profile-icon {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 0;
-    }
-  }
-  
-  .profile-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: #666;
-    text-decoration: underline;
-    margin: 0;
-  }
-}
 
-.section-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 10px;
-
-  border-left: 10px solid #999;
-  border-bottom: 1px solid #999;
-  padding-left: 10px;
-}
-
-.section-description {
-  font-size: 12px;
-  color: #333;
-  margin-bottom: 20px;
-}
     
 
 .home-page {
   padding: 0;
   
-  .profile-section {
+  .profile-section, .profile-content-section, .works-section {
     padding: 20px 10px;
     
     .profile-image-container {
@@ -651,252 +470,11 @@ html{
       padding: 0 15px;
     }
     
-    .works-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 60px 0 0;
-      padding-right: 20px;
-      
-      .works-icon {
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          border-radius: 0;
-        }
-      }
-      
-      .works-title {
-        font-size: 32px;
-        font-weight: 800;
-        color: #666;
-        text-decoration: underline;
-        margin: 0;
-      }
-    }
   }
   
   .interviews-section, .it-section {
     padding: 10px;
     
-    .section-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    
-    .section-description {
-      font-size: 10px;
-      line-height: 1.9;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    
-    .interview-category, .it-category {
-      margin-bottom: 40px;
-      border-left: 4px solid #ccc;
-      padding-left: 15px;
-      overflow: visible;
-      @media (max-width: 599px) {
-        padding-left: 5px;
-      }
-      
-      .category-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 5px;
-      }
-      
-      .category-subtitle {
-        font-size: 12px;
-        color: #666;
-        margin-bottom: 15px;
-      }
-      
-      .article-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
-        
-        .article-card {
-          border: 1px solid #e0e0e0;
-          border-radius: 8px;
-          overflow: hidden;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
-          
-          &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          }
-          
-          .article-link {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            
-            .article-thumbnail {
-              width: 100%;
-              height: 120px;
-              position: relative;
-              background-color: #f5f5f5;
-              
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
-              
-              .thumbnail-placeholder {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #f5f5f5;
-                color: #999;
-                
-                .v-icon {
-                  font-size: 36px;
-                }
-              }
-            }
-            
-            .article-info {
-              padding: 12px;
-              position: relative;
-              
-              .article-title {
-                font-size: 13px;
-                font-weight: 600;
-                color: #333;
-                margin-bottom: 5px;
-                line-height: 1.3;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-              }
-              
-              .article-subtitle {
-                font-size: 11px;
-                color: #666;
-                line-height: 1.3;
-                margin-bottom: 8px;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-              }
-              
-              .platform-badge {
-                display: inline-block;
-                padding: 2px 6px;
-                font-size: 10px;
-                border-radius: 4px;
-                font-weight: 500;
-                
-                &.note {
-                  background-color: #41c98e;
-                  color: white;
-                }
-                
-                &.zenn {
-                  background-color: #3ea8ff;
-                  color: white;
-                }
-              }
-            }
-          }
-        }
-      }
-      
-      
-      // v-slide-group用スタイル
-      .slide-group-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        overflow: visible;
-        
-        .slide-nav-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(5px);
-          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-          
-          &.slide-prev-btn {
-            left: 5px;
-          }
-          
-          &.slide-next-btn {
-            right: 5px;
-          }
-          
-          &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-          }
-          
-          // モバイルでは非表示（v-slide-groupのタッチ操作を優先）
-          @media (max-width: 959px) {
-            display: none;
-          }
-        }
-        
-        .article-slide-group {
-          flex: 1;
-          margin: 0 10px;
-          max-width: calc(100vw - 40px);
-          
-          // v-slide-groupの背景色を透明にし、overflowを調整
-          :deep(.v-slide-group) {
-            background-color: transparent !important;
-            overflow: visible !important;
-          }
-          
-          .v-slide-group__content {
-            padding: 10px 10px 10px 10px;
-          }
-          
-          // モバイルでの矢印ボタンのスタイル調整
-          :deep(.v-slide-group__prev),
-          :deep(.v-slide-group__next) {
-            background-color: transparent !important;
-            
-            @media (max-width: 959px) {
-              min-width: 32px !important;
-              width: 32px !important;
-              flex: 0 0 32px !important;
-            }
-            
-            @media (max-width: 599px) {
-              min-width: 24px !important;
-              width: 24px !important;
-              flex: 0 0 24px !important;
-            }
-          }
-          
-          // レスポンシブ対応
-          @media (max-width: 959px) {
-            margin: 0 0px;
-            
-            .v-slide-group__content {
-              padding: 10px 5px 10px 5px;
-            }
-          }
-        }
-      }
-    }
     
     .more-link {
       text-align: center;
@@ -970,35 +548,7 @@ html{
   .mental-health-section {
     padding: 10px;
     
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-      
-      .section-icon {
-        .avatar-placeholder {
-          width: 100%;
-          height: 100%;
-          background-color: #d9d9d9;
-          border-radius: 50%;
-        }
-      }
-      
-      .section-title {
-        font-size: 28px;
-        font-weight: 700;
-        color: #333;
-        margin: 0;
-      }
-    }
     
-    .section-description {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 20px;
-    }
     
     .activities-list {
       .activities-text {
