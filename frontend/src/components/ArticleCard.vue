@@ -84,10 +84,12 @@ const handleImageError = (event) => {
 <style lang="scss" scoped>
 .slide-article-card {
   margin: 0 10px;
-  width: 280px;
+  width: 350px;
   transition: all 0.3s ease;
   opacity: 1;
   transform: scale(1);
+  display: flex;
+  height: 100%;
   
   &:hover {
     opacity: 0.9;
@@ -104,6 +106,8 @@ const handleImageError = (event) => {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+    height: 100%;
     
     &:hover {
       background-color: rgba(255, 255, 255, 0.95);
@@ -113,7 +117,7 @@ const handleImageError = (event) => {
     
     .slide-article-thumbnail {
       width: 100%;
-      height: 147px; // 280px width / 1.91 aspect ratio ≈ 147px
+      height: 183px; // 350px width / 1.91 aspect ratio ≈ 183px
       background-color: #f5f5f5;
       
       img {
@@ -191,12 +195,12 @@ const handleImageError = (event) => {
 // レスポンシブ対応
 @media (max-width: 959px) {
   .slide-article-card {
-    width: 250px;
+    width: 340px;
     margin: 0 6px;
     
     .slide-article-link {
       .slide-article-thumbnail {
-        height: 131px; // 250px width / 1.91 aspect ratio ≈ 131px
+        height: 178px; // 340px width / 1.91 aspect ratio ≈ 178px
       }
       
       .slide-article-info {
@@ -217,12 +221,12 @@ const handleImageError = (event) => {
 
 @media (max-width: 599px) {
   .slide-article-card {
-    width: 220px;
+    width: 325px;
     margin: 0 4px;
     
     .slide-article-link {
       .slide-article-thumbnail {
-        height: 115px; // 220px width / 1.91 aspect ratio ≈ 115px
+        height: 170px; // 325px width / 1.91 aspect ratio ≈ 170px
       }
       
       .slide-article-info {

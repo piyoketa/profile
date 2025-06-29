@@ -1,12 +1,12 @@
 <template>
   <div class="article-category">
-    <h3 class="category-title">{{ title }}</h3>
-    <p v-if="subtitle" class="category-subtitle">{{ subtitle }}</p>
+    <h3 class="category-title pl-3 mb-1">{{ title }}</h3>
+    <p v-if="subtitle" class="category-subtitle pl-3">{{ subtitle }}</p>
     <div class="slide-group-container">
       <v-slide-group
         v-model="slideModel"
-        class="article-slide-group"
-        show-arrows="mobile"
+        class="article-slide-group mx-2 mx-sm-0"
+        show-arrows="always"
         :mandatory="false"
         :center-active="false"
       >
@@ -14,6 +14,7 @@
           v-for="article in articles"
           :key="article.url"
           v-slot="{ toggle, selectedClass }"
+          class="d-flex align-stretch"
         >
           <ArticleCard
             :article="article"
@@ -48,28 +49,19 @@ const props = defineProps({
 const slideModel = ref(0)
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .article-category {
-  margin-bottom: 40px;
-  border-left: 4px solid #ccc;
-  padding-left: 15px;
   overflow: visible;
-  
-  @media (max-width: 599px) {
-    padding-left: 5px;
-  }
   
   .category-title {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 5px;
   }
   
   .category-subtitle {
     font-size: 12px;
     color: #666;
-    margin-bottom: 15px;
   }
   
   .slide-group-container {
@@ -109,45 +101,55 @@ const slideModel = ref(0)
     
     .article-slide-group {
       flex: 1;
-      margin: 0 10px;
       max-width: calc(100vw - 40px);
       
       // v-slide-groupの背景色を透明にし、overflowを調整
-      :deep(.v-slide-group) {
+      .v-slide-group {
         background-color: transparent !important;
         overflow: visible !important;
       }
       
       .v-slide-group__content {
-        padding: 10px 10px 10px 10px;
+        padding: 10px 0;
       }
       
-      // モバイルでの矢印ボタンのスタイル調整
-      :deep(.v-slide-group__prev),
-      :deep(.v-slide-group__next) {
-        background-color: transparent !important;
-        
+      // モバイルでの矢印ボタンをオーバーレイ表示
+      .v-slide-group__prev,
+      .v-slide-group__next {
         @media (max-width: 959px) {
-          min-width: 32px !important;
-          width: 32px !important;
-          flex: 0 0 32px !important;
+          position: absolute !important;
+          z-index: 10;
+          background: rgba(255, 255, 255, 0.9) !important;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+          border-radius: 50% !important;
+          min-width: 40px !important;
+          width: 40px !important;
+          height: 40px !important;
+          flex: 0 0 40px !important;
+          top: 50%;
+          transform: translateY(-50%);
         }
         
         @media (max-width: 599px) {
-          min-width: 24px !important;
-          width: 24px !important;
-          flex: 0 0 24px !important;
+          min-width: 36px !important;
+          width: 36px !important;
+          height: 36px !important;
+          flex: 0 0 36px !important;
         }
       }
       
-      // レスポンシブ対応
-      @media (max-width: 959px) {
-        margin: 0 0px;
-        
-        .v-slide-group__content {
-          padding: 10px 5px 10px 5px;
+      .v-slide-group__prev {
+        @media (max-width: 959px) {
+          left: 8px;
         }
       }
+      
+      .v-slide-group__next {
+        @media (max-width: 959px) {
+          right: 8px;
+        }
+      }
+      
     }
   }
 }

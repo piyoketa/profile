@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-5">
+  <v-container>
     <v-row justify="center">
       <v-col cols="12" class="text-center">
         <!-- Profile Image -->

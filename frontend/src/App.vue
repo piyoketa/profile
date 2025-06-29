@@ -136,47 +136,22 @@ watch(route, (newRoute) => {
   transition: transform 0.3s ease-in-out;
 }
 
-/* ヒーローセクション */
-.hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  min-height: 300px;
-  text-align: left;
-}
-
-.hero-content {
-  padding: 60px 0;
-  width: 100vw;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.hero-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;
-}
-
-.hero-description p {
-  margin-bottom: 16px;
-}
-
 /* プロフィール画像のスタイル */
-.profile-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: border-color 0.2s ease;
-}
+// .profile-icon {
+//   width: 32px;
+//   height: 32px;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   border: 2px solid rgba(255, 255, 255, 0.2);
+//   transition: border-color 0.2s ease;
+// }
 
-.profile-icon:hover {
-  border-color: rgba(255, 255, 255, 0.5);
+// .profile-icon:hover {
+//   border-color: rgba(255, 255, 255, 0.5);
+// }
+
+html {
+  // font-family: 'Yomogi', cursive;
+  box-sizing: border-box;
 }
 </style>

@@ -7,7 +7,7 @@
     <ProfileSection />
 
     <!-- Works Section -->
-    <v-container fluid class="works-section pa-5">
+    <v-container class="works-section">
       <v-row justify="center">
         <v-col cols="12" class="text-center">
           <!-- Works Icon & Title -->
@@ -23,23 +23,23 @@
 
           <!-- millnaさんセクション -->
           <ArticleSlides title="millnaさん" subtitle="ファッションデザイナー / YouTuber"
-            :articles="articleData.interview_analysis.millna" />
+            :articles="articleData.interview_analysis.millna" class="mb-10"/>
 
           <!-- Karinさんセクション -->
-          <ArticleSlides title="Karinさん" subtitle="バーチャルAV女優" :articles="articleData.interview_analysis.karin" />
+          <ArticleSlides title="Karinさん" subtitle="バーチャルAV女優" :articles="articleData.interview_analysis.karin"  class="mb-10"/>
 
           <!-- コーチセクション -->
-          <ArticleSlides title="コーチ" subtitle="対人支援専門職" :articles="articleData.interview_analysis.coach" />
+          <ArticleSlides title="コーチ" subtitle="対人支援専門職" :articles="articleData.interview_analysis.coach"  class="mb-10" />
 
           <!-- ピアサポーターセクション -->
-          <ArticleSlides title="精神障害ピアサポーター" :articles="articleData.interview_analysis.peer_support" />
+          <ArticleSlides title="精神障害ピアサポーター" :articles="articleData.interview_analysis.peer_support"  class="mb-10" />
 
           <!-- More Link -->
-          <div class="more-link text-center mt-8">
+          <!-- <div class="more-link text-center mt-8">
             <router-link to="/interview" class="interview-link">
               →インタビューについてより詳しく
             </router-link>
-          </div>
+          </div> -->
         </v-col>
       </v-row>
 
@@ -49,13 +49,7 @@
           <SectionHeader title="Game" description="2025年から、趣味でゲーム作っています" />
 
           <!-- Game Cards -->
-          <div class="game-cards">
-            <GameCard
-              v-for="game in gameData"
-              :key="game.url"
-              :game="game"
-            />
-          </div>
+          <ArticleSlides title="" :articles="gameData" class="mb-10" />
         </v-col>
       </v-row>
 
@@ -65,13 +59,13 @@
           <SectionHeader title="IT engineering" description="勤め先の仕事内容はあまり外に発信してませんが、たまに記事を書いたり勉強会を開いたりしています。" />
 
           <!-- 闇のIT営業勉強会セクション -->
-          <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales" />
+          <ArticleSlides title="闇のIT営業勉強会" :articles="articleData.it_engineering.dark_it_sales"  class="mb-10" />
 
           <!-- マネジメント関係セクション -->
-          <ArticleSlides title="マネジメント関係" :articles="articleData.it_engineering.management" />
+          <ArticleSlides title="マネジメント関係" :articles="articleData.it_engineering.management" class="mb-10" />
 
           <!-- LLM関係セクション -->
-          <ArticleSlides title="LLM関係" :articles="articleData.it_engineering.llm" />
+          <ArticleSlides title="LLM関係" :articles="articleData.it_engineering.llm" class="mb-10" />
         </v-col>
       </v-row>
 
@@ -115,23 +109,22 @@ import workIcon from '@/assets/work_icon.png'
 import ArticleSlides from '@/components/ArticleSlides.vue'
 import SectionHeader from '@/components/SectionHeader.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import GameCard from '@/components/GameCard.vue'
 import HeroSection from '@/sections/HeroSection.vue'
 import ProfileSection from '@/sections/ProfileSection.vue'
 
-// Game data
+// Game data converted to article format
 const gameData = [
   {
     title: '孤独の七並べ',
-    subtitle: 'トランプパズル/ローグライク プレイ時間 15分～',
+    subtitle: 'トランプパズル/ローグライク',
     url: 'https://unityroom.com/games/alone_7cards',
-    image: '/src/assets/articles/kodokuno_sichinarabe.png'
+    thumbnail: '/src/assets/articles/kodokuno_sichinarabe.png'
   },
   {
     title: '有害コンテンツシューティング',
-    subtitle: '実験作 プレイ時間 5分～',
+    subtitle: 'OpenAI moderation API利用 実験作',
     url: 'https://openai-moderation-app.netlify.app',
-    image: '/src/assets/articles/GXM6A_GaIAEQ-hq.png'
+    thumbnail: '/src/assets/articles/GXM6A_GaIAEQ-hq.png'
   }
 ]
 
@@ -211,7 +204,7 @@ const articleData = {
     dark_it_sales: [
       {
         title: '君も 「闇のIT営業勉強会」の一員にならないか？',
-        subtitle: '',
+        subtitle: '企画書',
         url: 'https://note.com/piyoketa/n/n1ad743a2eb75',
         thumbnail: 'https://assets.st-note.com/production/uploads/images/90092187/6bf5ff761faa43f1a136d75f72f10cb7.png',
         platform: 'note'
@@ -285,43 +278,32 @@ const articleData = {
 </script>
 
 <style lang="scss">
-html {
-  // font-family: 'Yomogi', cursive;
-  box-sizing: border-box;
-}
-
-.home-page {
-  padding: 0;
-
-
-  .works-section {
-    .more-link {
-      .interview-link {
-        color: #333dff;
-        text-decoration: underline;
-        font-size: 12px;
-      }
-    }
-
-
-    .activities-list {
-      .activities-text {
-        font-size: 12px;
-
-        .mental-health-link {
-          color: #333dff;
-          text-decoration: underline;
-
-          &:hover {
-            color: #3338cc;
-          }
-        }
-
-        line-height: 1.6;
-        color: #333;
-        text-align: left;
-      }
-    }
+.more-link {
+  .interview-link {
+    color: #333dff;
+    text-decoration: underline;
+    font-size: 12px;
   }
 }
+
+
+.activities-list {
+  .activities-text {
+    font-size: 12px;
+
+    .mental-health-link {
+      color: #333dff;
+      text-decoration: underline;
+
+      &:hover {
+        color: #3338cc;
+      }
+    }
+
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+  }
+}
+
 </style>

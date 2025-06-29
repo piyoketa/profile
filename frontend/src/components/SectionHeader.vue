@@ -32,7 +32,7 @@ defineProps({
   }
 
   .section-description {
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
     margin-bottom: 20px;
   }
