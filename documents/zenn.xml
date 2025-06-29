@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[piyoketaさんのフィード]]></title><description><![CDATA[Zennのpiyoketaさん（@piyoketa）のRSSフィードです]]></description><link>https://zenn.dev/piyoketa</link><image><url>https://storage.googleapis.com/zenn-user-upload/avatar/6f759983c6.jpeg</url><title>piyoketaさんのフィード</title><link>https://zenn.dev/piyoketa</link></image><generator>zenn.dev</generator><lastBuildDate>Sat, 28 Jun 2025 14:30:04 GMT</lastBuildDate><atom:link href="https://zenn.dev/piyoketa/feed" rel="self" type="application/rss+xml"/><language><![CDATA[ja]]></language><item><title><![CDATA[外部LLMサービスを使いたいエンジニアのための個人情報保護の論点まとめ]]></title><description><![CDATA[
+ 対象読者
+
+OpenAIやGemini, Claudeなどの外部LLMサービスを利用して個人情報を扱う時の法務的観点について知りたいWebエンジニア
+
+
+ この記事は何？
+
+個人情報を外部LLMサービスで処理したい場合の個人情報保護法上の論点については、STORIA法律事務所さんの「生成AIへのプロンプト入力時における個人情報保護法上の論点まとめ」が詳しく、これを読めば十分
+しかし、上記記事は何も知らない素人がいきなり読むにはちょっとつらい。読んでもイメージを湧きにくいところがあると思う。
+本記事では、上記記事の副読本として、法律に詳しくないWebエンジニアが読んでも「なんとなく分か...]]></description><link>https://zenn.dev/piyoketa/articles/4f95a62371fd11</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/4f95a62371fd11</guid><pubDate>Tue, 06 Aug 2024 09:04:08 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--CUL9vZh6--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25A4%2596%25E9%2583%25A8LLM%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%2584%25E3%2581%259F%25E3%2581%2584%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E5%2580%258B%25E4%25BA%25BA%25E6%2583%2585%25E5%25A0%25B1%25E4%25BF%259D%25E8%25AD%25B7%25E3%2581%25AE%25E8%25AB%2596%25E7%2582%25B9%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item><item><title><![CDATA[Promiseをカレー作りで喩える]]></title><description><![CDATA[数か月おきに、Promiseの役割(特に resolve の意味)や細かい実行順がよくわからなくなってしまうため、いざというときに思い出しやすいよう、比喩的に内容をまとめておく。
+主に自分向けなので、他の人にとって理解しやすいかどうかは保証しない。
+
+ 小話
+複数人でカレーを作っている場面を想定。
+「ジャガイモの皮を剥き、一口大に切る」というタスクがあるとする。
+
+ シェルスクリプト風に書くなら...
+cat "じゃがいも.txt" | 皮を剥く | 一口大に切る | ...
+じゃがいもを取り出し、皮を剥き、剥き終わったらじゃがいもを一口大に切る、という一連の作業は、シェルスクリプトであ...]]></description><link>https://zenn.dev/piyoketa/articles/dd009ed52ac5ce</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/dd009ed52ac5ce</guid><pubDate>Sun, 17 Mar 2024 07:56:09 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--6Cewnecv--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Promise%25E3%2582%2592%25E3%2582%25AB%25E3%2583%25AC%25E3%2583%25BC%25E4%25BD%259C%25E3%2582%258A%25E3%2581%25A7%25E5%2596%25A9%25E3%2581%2588%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item><item><title><![CDATA[LLMによる添削機能付きエディタをWebブラウザで動かしたいなら、textarea overlayを使え！]]></title><description><![CDATA[
+ やりたいこと
+
+
+Grammalyみたいな添削機能付きのエディタを、ブラウザ上で動かしたい！
+具体的には、&lt;textarea&gt;の中で、添削を入れた箇所に赤線を表示したい。赤線箇所をクリックしたら、textarea右側に修正後の文章の提案が表示されてほしい！
+
+
+ 背景
+
+Web画面上の投稿フォームに添削機能を組み込んでみたかった
+添削用のプロンプト自体はすぐに書けたが、UIが想像の何倍も難しく、実現のための技術検討にめちゃくちゃ時間を取られた（１ヶ月かかった）
+この手の情報が検索してもなかなか見つけられなかったので、同じように苦しんでいる人のために自分が調べた内容をまとめ...]]></description><link>https://zenn.dev/piyoketa/articles/4934d9c4e1fa5e</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/4934d9c4e1fa5e</guid><pubDate>Wed, 06 Mar 2024 03:22:27 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--M_4gPh-v--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LLM%25E3%2581%25AB%25E3%2582%2588%25E3%2582%258B%25E6%25B7%25BB%25E5%2589%258A%25E6%25A9%259F%25E8%2583%25BD%25E4%25BB%2598%25E3%2581%258D%25E3%2582%25A8%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25BF%25E3%2582%2592Web%25E3%2583%2596%25E3%2583%25A9%25E3%2582%25A6%25E3%2582%25B6%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%25E3%2581%25AA%25E3%2582%2589%25E3%2580%2581textarea%2520overlay%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%2588%25EF%25BC%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item><item><title><![CDATA[初めて部下になる新人ITエンジニアのためのマネジメントのされ方]]></title><description><![CDATA[(noteを転載しました)
+
+ この記事は何？
+
+学生バイトやインターン生、1年目の社会人など、初めて上司にマネジメントされる立場になったITエンジニア向けに、マネジメントされる上での心得をまとめました。
+ITエンジニアらしく、組織における「知識の所在」「責任」「不確実性」をキーワードに、「誰が何を知っているのか」「誰が何に責任を負うべきか」という観点で、マネージャーと部下の役割の違いを整理しています。
+
+
+ なぜ「マネジメントのされ方」が必要なのか？
+
+マネージャーは、簡単に言えば、あなたの努力が、あなた個人にとっても組織全体にとっても嬉しい結果につながるようにする役割を担っています。...]]></description><link>https://zenn.dev/piyoketa/articles/5a116bdccacb92</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/5a116bdccacb92</guid><pubDate>Tue, 31 May 2022 08:42:57 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--akAsrUZX--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E9%2583%25A8%25E4%25B8%258B%25E3%2581%25AB%25E3%2581%25AA%25E3%2582%258B%25E6%2596%25B0%25E4%25BA%25BAIT%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E3%2583%259E%25E3%2583%258D%25E3%2582%25B8%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E3%2581%2595%25E3%2582%258C%25E6%2596%25B9%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item><item><title><![CDATA[初めてマネージャーになるエンジニアのための手引き]]></title><description><![CDATA[(noteから転載しました)
+
+ この記事は何？
+
+数名程度の小規模なエンジニアチームにおいて、初めて「部下をマネジメントする」立場になった人向けに、マネージャーとはどういう役割なのか、気をつけるべきことは何か等を伝える記事です。
+主にピープルマネジメント（人のマネジメント）の部分に焦点を置いています。
+
+ピープルマネジメント以外の領域が何があるのか知りたい場合は、以下参考記事などを見てください
+
+
+想定読者は、部下を数名持っているくらいのエンジニアチームのマネージャー、特に若い部下（学生バイトやインターン生、エンジニア歴1,2年目の社会人）を持っているマネージャです。
+
+参考記事：エン...]]></description><link>https://zenn.dev/piyoketa/articles/4306d4afe99361</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/4306d4afe99361</guid><pubDate>Tue, 31 May 2022 08:34:03 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--AkBO3YlG--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2588%259D%25E3%2582%2581%25E3%2581%25A6%25E3%2583%259E%25E3%2583%258D%25E3%2583%25BC%25E3%2582%25B8%25E3%2583%25A3%25E3%2583%25BC%25E3%2581%25AB%25E3%2581%25AA%25E3%2582%258B%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E6%2589%258B%25E5%25BC%2595%25E3%2581%258D%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item><item><title><![CDATA[新人プロジェクトマネージャーのための「計画の見直し」の基礎]]></title><description><![CDATA[
+ 「計画の見直し」とは
+PM（プロジェクトマネージャー）とは、リソース（＝予算や人員）をどこにどう使うかを意思決定する権限を持ち、プロジェクトの目標を期日までに達成することに責任を持つ人のことです。
+「プロジェクト」と呼ぶほど大掛かりではなくても、会社で働いていれば社内外からさまざまな依頼を受けるはずです。しかし、メンバーが急病で休んだり、必要な連絡がされていなかったり、優先度の高い別タスクが割り込みで発生したりと、さまざまなトラブルによって依頼された内容がどうやっても期日内には達成不可能になってしまう・・・なんてことは日常茶飯事です。
+こういった問題が発生した場合、即座に「計画の見直...]]></description><link>https://zenn.dev/piyoketa/articles/3492a69b14f9f0</link><guid isPermaLink="true">https://zenn.dev/piyoketa/articles/3492a69b14f9f0</guid><pubDate>Tue, 24 May 2022 11:58:57 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--hTbS7s42--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2596%25B0%25E4%25BA%25BA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B8%25E3%2582%25A7%25E3%2582%25AF%25E3%2583%2588%25E3%2583%259E%25E3%2583%258D%25E3%2583%25BC%25E3%2582%25B8%25E3%2583%25A3%25E3%2583%25BC%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E3%2580%258C%25E8%25A8%2588%25E7%2594%25BB%25E3%2581%25AE%25E8%25A6%258B%25E7%259B%25B4%25E3%2581%2597%25E3%2580%258D%25E3%2581%25AE%25E5%259F%25BA%25E7%25A4%258E%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:piyoketa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzZmNzU5OTgzYzYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>piyoketa</dc:creator></item></channel></rss>

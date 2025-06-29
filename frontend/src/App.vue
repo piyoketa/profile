@@ -97,6 +97,7 @@ watch(route, (newRoute) => {
 <style lang="scss">
 #app {
   padding: 0 !important;
+  width: 100%;
 }
 /* 共通フォント */
 .v-application {
