@@ -100,7 +100,7 @@ const gameData = [
   },
   {
     title: '売らせよう！水素水！',
-    subtitle: 'クイズ/Unity1week参加作品',
+    subtitle: 'クイズ/Unity1weekお題「うら」参加作品',
     url: 'https://unityroom.com/games/sell-hydrogen-water',
     thumbnail: '/src/assets/articles/sell-hydrogen-water.png'
   },

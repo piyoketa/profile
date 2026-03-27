@@ -8,87 +8,69 @@
               <h1 class="text-h4 text-sm-h3 font-weight-bold mb-3">被虐のシスター</h1>
               <p class="text-body-1 mb-0">
                 プレイヤー自身は一切攻撃せず、受けた攻撃を記憶して戦う<br>
-                スレスパ系のデッキ構築ゲームです。
+                スレスパ系カードゲームです。
               </p>
             </div>
             <img :src="sisterThumbnail" alt="被虐のシスター" class="hero-thumbnail">
           </div>
 
-          <div class="d-flex flex-wrap ga-3 mb-6">
-            <v-btn
-              color="primary"
-              href="https://masochistic-sister.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ゲームを遊ぶ
-            </v-btn>
-            <v-btn
-              variant="outlined"
-              href="https://x.com/piyoketa_unity/status/2022636169520124147"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              紹介ポストを見る
-            </v-btn>
-          </div>
-
           <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">注意点</h2>
-            <p class="text-body-2 mb-3">
-              ・まだ開発中のため、チュートリアルは未整備です。<br>
-              まだ遊びとして成立するかを確かめている段階なので、
-              最初は説明文を拾いながら試行錯誤する前提です。
-            </p>
+            <h2 class="text-h6 font-weight-bold mb-3">注意事項</h2>
+            <v-list class="pa-0" density="compact">
+              <v-list-item>
+                <v-list-item-title class="text-body-2">
+                  まだ開発中です。遊びとして成立するか検証している段階なので、
+                  チュートリアルなどはまだ作成していません。
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
           </section>
 
           <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">遊び方メモ</h2>
+            <h2 class="text-h6 font-weight-bold mb-3">遊び方</h2>
+            <p class="text-body-2 mb-3">
+              ルールはほとんど Slay the Spire ですが、以下の4点だけご注意ください。
+            </p>
             <v-list class="pa-0 guide-list" density="compact">
               <v-list-item>
                 <v-list-item-title class="text-body-2">
-                  敵の攻撃を受けると、手札に「被虐の記憶」が追加されます。
-                  大きな被ダメージほど強い攻撃カードになります。
+                  敵の攻撃を受けると、手札に「被虐の記憶」（攻撃カード）が追加されます。
+                  大きなダメージを受けるほど、強い攻撃カードが手に入ります。
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-body-2">
-                  敵の防御（鉄壁）は失われません。突破にはそれ以上の打点が必要です。
+                  敵の防御（鉄壁）は失われません。鉄壁を超えるには、それ以上の打点のカードが必要です。
+                  初戦のかたつむりを突破できない時は、30ダメージ以上の攻撃を受けましょう。
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-body-2">
-                  捨て札のカードは、山札を引き切ると山札へ戻ります。
+                  捨て札に送られたカードは、山札を引き切ると山札に戻ります。
+                  手に入れた攻撃カードを再利用しましょう。
                 </v-list-item-title>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title class="text-body-2">
                   戦闘画面右上の「一手戻す」で操作を巻き戻せます。
-                  分からないときほど試してください。
+                  よくわからない時は、どんどん手を戻して色々な操作を試してみてください。
                 </v-list-item-title>
               </v-list-item>
             </v-list>
           </section>
 
           <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">開始手順</h2>
-            <v-list class="pa-0" density="compact">
-              <v-list-item>
-                <v-list-item-title class="text-body-2">
-                  1. 上のリンクからゲームを開く
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title class="text-body-2">
-                  2. 「はじめから」を押す
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <v-list-item-title class="text-body-2">
-                  3. チュートリアル戦闘は任意。未整備なので飛ばしても大丈夫です
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
+            <h2 class="text-h6 font-weight-bold mb-3">ゲームの始め方</h2>
+            <div class="d-flex flex-wrap ga-3">
+              <v-btn
+                color="primary"
+                href="https://masochistic-sister.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ゲームを遊ぶ
+              </v-btn>
+            </div>
           </section>
         </v-card>
       </v-col>
@@ -134,6 +116,15 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
 
   .guide-list :deep(.v-list-item) {
     padding-inline: 0;
+  }
+
+  .tweet-card {
+    background: #fafafa;
+  }
+
+  .tweet-link {
+    color: #1d4ed8;
+    overflow-wrap: anywhere;
   }
 }
 
