@@ -34,41 +34,11 @@
           </div>
 
           <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">コンセプト</h2>
-            <p class="text-body-1">
-              「プレイヤー自身は一切の攻撃手段を持たず、敵から受けた攻撃を記憶して戦う」
-              ことを核にしたゲームデザインを試しています。
-            </p>
-            <p class="text-body-2">
-              まだUIの作り込み前で、ゲーム中盤にこのコンセプトならではの面白さが
-              立ち上がるかを検証している段階です。
-            </p>
-          </section>
-
-          <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">依頼内容</h2>
-            <v-list class="pa-0" density="compact">
-              <v-list-item>
-                <template #prepend>
-                  <v-icon size="18">mdi-check-circle-outline</v-icon>
-                </template>
-                <v-list-item-title>2周目のボス戦（ビーム砲）に到達する</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <template #prepend>
-                  <v-icon size="18">mdi-check-circle-outline</v-icon>
-                </template>
-                <v-list-item-title>または3回ゲームオーバーになるまで遊ぶ</v-list-item-title>
-              </v-list-item>
-              <v-list-item>
-                <template #prepend>
-                  <v-icon size="18">mdi-clock-outline</v-icon>
-                </template>
-                <v-list-item-title>想定プレイ時間は30分〜1時間</v-list-item-title>
-              </v-list-item>
-            </v-list>
-            <p class="text-body-2 mt-3 mb-0">
-              時間が合えば通話しながら案内する前提でも募集しています。
+            <h2 class="text-h6 font-weight-bold mb-3">注意点</h2>
+            <p class="text-body-2 mb-3">
+              ・まだ開発中のため、チュートリアルは未整備です。<br>
+              まだ遊びとして成立するかを確かめている段階なので、
+              最初は説明文を拾いながら試行錯誤する前提です。
             </p>
           </section>
 
@@ -120,26 +90,6 @@
               </v-list-item>
             </v-list>
           </section>
-
-          <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">現状の注意</h2>
-            <p class="text-body-2 mb-3">
-              まだ遊びとして成立するかを確かめている段階なので、チュートリアルは未整備です。
-              最初は説明文を拾いながら試行錯誤する前提です。
-            </p>
-            <v-alert type="info" variant="tonal" density="comfortable">
-              スプラトゥーンでいえば、豆腐が銃を打ち合っているデモを作っている段階、
-              という温度感です。
-            </v-alert>
-          </section>
-
-          <section class="content-section">
-            <h2 class="text-h6 font-weight-bold mb-3">検証したいこと</h2>
-            <v-alert type="warning" variant="tonal" density="comfortable">
-              序盤の分かりやすさより、中盤で
-              「このコンセプトならではの面白さ」が出るかを見ています。
-            </v-alert>
-          </section>
         </v-card>
       </v-col>
     </v-row>
@@ -154,7 +104,8 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
 .masochistic-sister-page {
   .hero-placeholder {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
     padding: 24px;
     border-radius: 16px;
@@ -162,7 +113,7 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
     border: 1px solid rgba(15, 30, 46, 0.08);
 
     .hero-thumbnail {
-      width: min(480px, 100%);
+      width: min(360px, 100%);
       border-radius: 12px;
       object-fit: cover;
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
@@ -186,7 +137,16 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
   }
 }
 
-.masochistic-sister-page .hero-placeholder .hero-thumbnail {
-  width: min(480px, 100%);
+@media (max-width: 600px) {
+  .masochistic-sister-page {
+    .hero-placeholder {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .hero-thumbnail {
+        width: 100%;
+      }
+    }
+  }
 }
 </style>
