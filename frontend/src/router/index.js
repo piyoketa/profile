@@ -4,12 +4,14 @@ import MentalHealth from '../pages/MentalHealth.vue'
 import IT from '../pages/IT.vue'
 import GameDev from '../pages/GameDev.vue'
 import Interview from '../pages/Interview.vue'
+import MasochisticSister from '../pages/MasochisticSister.vue'
 
 const routes = [
   { path: '/',          name: 'Home',     component: Home },
   { path: '/mental-health', name: 'MentalHealth', component: MentalHealth },
   { path: '/it',         name: 'IT',       component: IT },
   { path: '/game-dev',   name: 'GameDev',  component: GameDev },
+  { path: '/game-dev/masochistic-sister', name: 'MasochisticSister', component: MasochisticSister },
   { path: '/interview',  name: 'Interview', component: Interview },
 ]
 

@@ -93,6 +93,18 @@ import ProfileSection from '@/sections/ProfileSection.vue'
 // Game data converted to article format
 const gameData = [
   {
+    title: '被虐のシスター（開発中）',
+    subtitle: 'スレスパ系カードゲーム',
+    url: '/game-dev/masochistic-sister',
+    thumbnail: '/src/assets/articles/mosochistic-sister.png'
+  },
+  {
+    title: '売らせよう！水素水！',
+    subtitle: 'クイズ/Unity1week参加作品',
+    url: 'https://unityroom.com/games/sell-hydrogen-water',
+    thumbnail: '/src/assets/articles/sell-hydrogen-water.png'
+  },
+  {
     title: '孤独の七並べ',
     subtitle: 'トランプパズル/ローグライク',
     url: 'https://unityroom.com/games/alone_7cards',
