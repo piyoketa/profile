@@ -19,6 +19,8 @@ const routes = [
       title: '被虐のシスター',
       description: '敵から受けた攻撃を記憶して戦う、デッキ構築ローグライク',
       ogImage: '/ogp/masochistic-sister.png',
+      faviconPng: '/favicons/masochistic-sister.png',
+      faviconIco: '/favicons/masochistic-sister.ico',
       twitterCard: 'summary_large_image',
     },
   },

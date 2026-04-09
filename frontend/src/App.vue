@@ -61,6 +61,8 @@ const siteUrl = 'https://piyoketa.netlify.app'
 const defaultTitle = "piyoketa's portfolio"
 const defaultDescription = 'piyoketa のポートフォリオサイトです。'
 const defaultTwitterCard = 'summary'
+const defaultFaviconPng = '/favicon.png'
+const defaultFaviconIco = '/favicon.ico'
 
 const upsertMetaTag = (key, value, content) => {
   let element = document.head.querySelector(`meta[${key}="${value}"]`)
@@ -86,6 +88,29 @@ const upsertLinkTag = (rel, href) => {
   element.setAttribute('href', href)
 }
 
+const syncFavicon = () => {
+  const faviconPng = route.meta.faviconPng || defaultFaviconPng
+  const faviconIco = route.meta.faviconIco || defaultFaviconIco
+  let pngLink = document.head.querySelector('link[rel="icon"]')
+  let icoLink = document.head.querySelector('link[rel="shortcut icon"]')
+
+  if (!pngLink) {
+    pngLink = document.createElement('link')
+    pngLink.setAttribute('rel', 'icon')
+    pngLink.setAttribute('type', 'image/png')
+    document.head.appendChild(pngLink)
+  }
+
+  if (!icoLink) {
+    icoLink = document.createElement('link')
+    icoLink.setAttribute('rel', 'shortcut icon')
+    document.head.appendChild(icoLink)
+  }
+
+  pngLink.setAttribute('href', faviconPng)
+  icoLink.setAttribute('href', faviconIco)
+}
+
 const resolveAbsoluteUrl = (value) => new URL(value, siteUrl).href
 
 const syncSeoMeta = () => {
@@ -108,6 +133,7 @@ const syncSeoMeta = () => {
   upsertMetaTag('name', 'twitter:description', description)
   upsertMetaTag('name', 'twitter:image', image)
   upsertLinkTag('canonical', url)
+  syncFavicon()
 }
 
 /** グローバルナビゲーションのリンク定義 */
