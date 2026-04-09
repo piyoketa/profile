@@ -57,6 +57,58 @@ import profileImage from '@/assets/profile.jpg'
 
 const router = useRouter()
 const route = useRoute()
+const siteUrl = 'https://piyoketa.netlify.app'
+const defaultTitle = "piyoketa's portfolio"
+const defaultDescription = 'piyoketa のポートフォリオサイトです。'
+const defaultTwitterCard = 'summary'
+
+const upsertMetaTag = (key, value, content) => {
+  let element = document.head.querySelector(`meta[${key}="${value}"]`)
+
+  if (!element) {
+    element = document.createElement('meta')
+    element.setAttribute(key, value)
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('content', content)
+}
+
+const upsertLinkTag = (rel, href) => {
+  let element = document.head.querySelector(`link[rel="${rel}"]`)
+
+  if (!element) {
+    element = document.createElement('link')
+    element.setAttribute('rel', rel)
+    document.head.appendChild(element)
+  }
+
+  element.setAttribute('href', href)
+}
+
+const resolveAbsoluteUrl = (value) => new URL(value, siteUrl).href
+
+const syncSeoMeta = () => {
+  const title = route.meta.title || defaultTitle
+  const description = route.meta.description || defaultDescription
+  const image = resolveAbsoluteUrl(route.meta.ogImage || profileImage)
+  const url = resolveAbsoluteUrl(route.fullPath)
+  const twitterCard = route.meta.twitterCard || defaultTwitterCard
+
+  document.title = title
+
+  upsertMetaTag('name', 'description', description)
+  upsertMetaTag('property', 'og:title', title)
+  upsertMetaTag('property', 'og:description', description)
+  upsertMetaTag('property', 'og:type', 'website')
+  upsertMetaTag('property', 'og:url', url)
+  upsertMetaTag('property', 'og:image', image)
+  upsertMetaTag('name', 'twitter:card', twitterCard)
+  upsertMetaTag('name', 'twitter:title', title)
+  upsertMetaTag('name', 'twitter:description', description)
+  upsertMetaTag('name', 'twitter:image', image)
+  upsertLinkTag('canonical', url)
+}
 
 /** グローバルナビゲーションのリンク定義 */
 const links = [
@@ -93,6 +145,14 @@ watch(route, (newRoute) => {
     tab.value = index
   }
 }, { immediate: true })
+
+watch(
+  () => route.fullPath,
+  () => {
+    syncSeoMeta()
+  },
+  { immediate: true }
+)
 </script>
 
 <style lang="scss">

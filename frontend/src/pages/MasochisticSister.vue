@@ -7,8 +7,9 @@
             <div>
               <h1 class="text-h4 text-sm-h3 font-weight-bold mb-3">被虐のシスター</h1>
               <p class="text-body-1 mb-0">
-                プレイヤー自身は一切攻撃せず、受けた攻撃を記憶して戦う<br>
-                スレスパ系カードゲームです。
+                「プレイヤー自身は一切の攻撃手段を持たず、<br>
+                敵から受けた攻撃を記憶して戦う」<br>
+                というコンセプトのデッキ構築ローグライクです。
               </p>
             </div>
             <img :src="sisterThumbnail" alt="被虐のシスター" class="hero-thumbnail">
@@ -114,8 +115,21 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
     margin-top: 32px;
   }
 
+  .content-section :deep(.v-list-item__content) {
+    overflow: visible;
+  }
+
+  .content-section :deep(.v-list-item-title) {
+    white-space: normal;
+    text-overflow: clip;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .guide-list :deep(.v-list-item) {
     padding-inline: 0;
+    align-items: flex-start;
   }
 
   .tweet-card {

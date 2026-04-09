@@ -11,7 +11,17 @@ const routes = [
   { path: '/mental-health', name: 'MentalHealth', component: MentalHealth },
   { path: '/it',         name: 'IT',       component: IT },
   { path: '/game-dev',   name: 'GameDev',  component: GameDev },
-  { path: '/game-dev/masochistic-sister', name: 'MasochisticSister', component: MasochisticSister },
+  {
+    path: '/game-dev/masochistic-sister',
+    name: 'MasochisticSister',
+    component: MasochisticSister,
+    meta: {
+      title: '被虐のシスター',
+      description: '敵から受けた攻撃を記憶して戦う、デッキ構築ローグライク「被虐のシスター」。',
+      ogImage: '/ogp/masochistic-sister.png',
+      twitterCard: 'summary_large_image',
+    },
+  },
   { path: '/interview',  name: 'Interview', component: Interview },
 ]
 

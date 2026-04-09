@@ -13,6 +13,14 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        masochisticSister: resolve(__dirname, 'game-dev/masochistic-sister/index.html'),
+      },
+    },
+  },
   server: {
     host: '0.0.0.0',
     watch: {
