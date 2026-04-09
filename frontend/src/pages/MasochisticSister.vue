@@ -132,6 +132,19 @@ import sisterThumbnail from '@/assets/articles/mosochistic-sister.png'
     align-items: flex-start;
   }
 
+  .guide-list :deep(.v-list-item-title) {
+    display: block;
+    position: relative;
+    padding-left: 1em;
+  }
+
+  .guide-list :deep(.v-list-item-title)::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
   .tweet-card {
     background: #fafafa;
   }

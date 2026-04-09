@@ -17,7 +17,7 @@ const routes = [
     component: MasochisticSister,
     meta: {
       title: '被虐のシスター',
-      description: '敵から受けた攻撃を記憶して戦う、デッキ構築ローグライク「被虐のシスター」。',
+      description: '敵から受けた攻撃を記憶して戦う、デッキ構築ローグライク',
       ogImage: '/ogp/masochistic-sister.png',
       twitterCard: 'summary_large_image',
     },
